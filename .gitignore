@@ -54,3 +54,4 @@ Assets/AssetStoreTools*
  *.apk
 
 *.unitypackage
+.vscode
