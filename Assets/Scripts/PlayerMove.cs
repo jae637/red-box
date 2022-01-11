@@ -7,8 +7,13 @@ public class PlayerMove : MonoBehaviour
     public float maxSpeed;
     public float jumpPower;
     int jumpCount = 0;
+
+    public float curShotDelay, maxShotDelay;
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
+
+    public GameObject playerBullet;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,6 +22,14 @@ public class PlayerMove : MonoBehaviour
     }
 
     void Update()
+    {
+        jump();
+        fire();
+        move();
+        reload();
+    }
+
+    void jump()
     {
         // double jump flag
         if (rigid.velocity.y == 0.0f)
@@ -34,7 +47,32 @@ public class PlayerMove : MonoBehaviour
                 jumpCount++;
             }
         }
+    }
 
+    void reload()
+    {
+        curShotDelay += Time.deltaTime;
+    }
+
+    // 총알 발사 로직
+    void fire()
+    {
+        if (!Input.GetButton("Fire1"))
+            return;
+
+        if (curShotDelay < maxShotDelay)
+            return;
+        GameObject bullet = Instantiate(playerBullet, transform.position, transform.rotation);
+        Rigidbody2D bulletRigid = bullet.GetComponent<Rigidbody2D>();
+        int filped = spriteRenderer.flipX ? -1 : 1;
+        bulletRigid.AddForce(Vector2.right * filped * 10, ForceMode2D.Impulse);
+
+        curShotDelay = 0;
+    }
+
+    // 이동 로직
+    void move()
+    {
         //
         if (Input.GetButton("Horizontal"))
         {
@@ -50,7 +88,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         //range limit
-        if (rigid.position.x > 8.56f || rigid.position.x < -8.56)
+        if (rigid.position.x > 8.46f || rigid.position.x < -8.46)
         {
             rigid.velocity = new Vector2(0, rigid.velocity.y);
         }

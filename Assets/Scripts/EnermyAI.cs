@@ -18,10 +18,10 @@ public class EnermyAI : MonoBehaviour
     {
         rigid.velocity = new Vector2(nextMove, rigid.velocity.y);
 
-        if (rigid.position.x > 7.9)
-            rigid.position = new Vector2(7.9f, rigid.position.y);
-        if (rigid.position.x < -7.9)
-            rigid.position = new Vector2(-7.9f, rigid.position.y);
+        if (rigid.position.x > 7.8)
+            rigid.position = new Vector2(7.8f, rigid.position.y);
+        if (rigid.position.x < -7.8)
+            rigid.position = new Vector2(-7.8f, rigid.position.y);
     }
 
     void Think()
