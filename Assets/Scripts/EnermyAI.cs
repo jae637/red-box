@@ -28,10 +28,18 @@ public class EnermyAI : MonoBehaviour
 
     void Think()
     {
-        nextMove = Random.Range(-5, 5);
-        // if (rigid.velocity.x == 0)
-        //     Think();
-        Invoke("Think", 5);
+        nextMove = 0;
+        while (true)
+        {
+            int a = Random.Range(-1, 2);
+            if (a != 0)
+            {
+                nextMove = a * 5;
+                break;
+            }
+        }
+
+        Invoke("Think", 1);
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -42,7 +50,6 @@ public class EnermyAI : MonoBehaviour
         {
             PlayerBullet bullet = other.gameObject.GetComponent<PlayerBullet>();
             onHit(bullet.dmg);
-
         }
     }
 
