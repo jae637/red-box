@@ -8,6 +8,8 @@ public class EnermyAI : MonoBehaviour
     Rigidbody2D rigid;
     public int nextMove;
 
+    public int health;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -36,5 +38,22 @@ public class EnermyAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
             Debug.Log("hit");
+        else if (other.gameObject.tag == "PlayerBullet")
+        {
+            PlayerBullet bullet = other.gameObject.GetComponent<PlayerBullet>();
+            onHit(bullet.dmg);
+
+        }
+    }
+
+    public void onHit(int dmg)
+    {
+        health -= dmg;
+        Debug.Log(health);
+        if (health <= 0)
+        {
+            Debug.Log("finish");
+            Destroy(gameObject);
+        }
     }
 }
