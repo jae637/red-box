@@ -132,6 +132,10 @@ public class PlayerMove : MonoBehaviour
         if (hp <= 0)
         {
             Destroy(gameObject);
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
         }
     }
 }

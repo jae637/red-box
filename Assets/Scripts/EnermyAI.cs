@@ -13,7 +13,7 @@ public class EnermyAI : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        Think();
+        Pattern();
     }
 
     void FixedUpdate()
@@ -26,7 +26,7 @@ public class EnermyAI : MonoBehaviour
             rigid.position = new Vector2(-7.8f, rigid.position.y);
     }
 
-    void Think()
+    void Pattern()
     {
         nextMove = 0;
         while (true)
@@ -39,7 +39,7 @@ public class EnermyAI : MonoBehaviour
             }
         }
 
-        Invoke("Think", 1);
+        Invoke("Pattern", 1);
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -61,6 +61,11 @@ public class EnermyAI : MonoBehaviour
         {
             Debug.Log("finish");
             Destroy(gameObject);
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
         }
     }
+}
 }
