@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     public float maxSpeed;
     public float jumpPower;
+    public int hp;
     int jumpCount = 0;
 
     public float curShotDelay, maxShotDelay;
@@ -112,5 +113,29 @@ public class PlayerMove : MonoBehaviour
             rigid.position = new Vector2(8.56f, rigid.position.y);
         if (rigid.position.x < -8.56)
             rigid.position = new Vector2(-8.56f, rigid.position.y);
+    }
+
+    // 적 피격 액션
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            EnermyAI enemy = other.gameObject.GetComponent<EnermyAI>();
+            onHit();
+        }
+    }
+
+    //사용자 피격시
+    public void onHit()
+    {
+        hp--;
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
+        }
     }
 }

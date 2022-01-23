@@ -427,7 +427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623725668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.97, y: -1.833, z: 0}
+  m_LocalPosition: {x: -6, y: -1.833, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -448,7 +448,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -492,10 +492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e987bc582b9200046a1b89b8d67d8aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
-  jumpPower: 10
+  maxSpeed: 7
+  jumpPower: 16
+  hp: 1
   curShotDelay: 0
-  maxShotDelay: 0.5
+  maxShotDelay: 0.4
   playerBullet: {fileID: 4446878933081930625, guid: 030d715340fcdc04b805becc66540c61,
     type: 3}
 --- !u!1 &1571677015
