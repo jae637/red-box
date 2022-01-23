@@ -44,9 +44,7 @@ public class EnermyAI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
-            Debug.Log("hit");
-        else if (other.gameObject.tag == "PlayerBullet")
+        if (other.gameObject.tag == "PlayerBullet")
         {
             PlayerBullet bullet = other.gameObject.GetComponent<PlayerBullet>();
             onHit(bullet.dmg);
