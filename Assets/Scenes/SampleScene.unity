@@ -494,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 7
   jumpPower: 16
+  hp: 1
   curShotDelay: 0
   maxShotDelay: 0.4
   playerBullet: {fileID: 4446878933081930625, guid: 030d715340fcdc04b805becc66540c61,
