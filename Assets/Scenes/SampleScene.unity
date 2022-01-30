@@ -261,7 +261,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 273161140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34884b976f564f4392ce164be4835c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b3f9afd7a5abbb449ef4d4248f2112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 623725668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e987bc582b9200046a1b89b8d67d8aa2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5384ea7d5244caa418d7b4d173f2eb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 7
